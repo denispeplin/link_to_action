@@ -7,6 +7,7 @@ module LinkToAction
     name = options.delete(:name) || t_action(object, :create)
     params = options.delete(:params) || {}
     params[:action] = :new
+    # TODO: make icon and can? optional
     ilink_to 'plus large', name, polymorphic_url(object, params), options if can?(:create, object)
   end
 
