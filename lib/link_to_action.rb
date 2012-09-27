@@ -12,6 +12,13 @@ module LinkToAction
     ilink_to 'plus large', name, polymorphic_url(object, params), options if can?(:create, object)
   end
 
+  def link_to_edit(object, options = {})
+    name = options.delete(:name) || t_action(object, :edit)
+    params = options.delete(:params) || {}
+    params[:action] = :edit
+    ilink_to 'edit large', name, polymorphic_url(object, params), options if can_edit?(object)
+  end
+
   private
 
   def ilink_to(*args)

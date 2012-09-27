@@ -2,3 +2,4 @@ en:
   helpers:
     link_to:
       new: 'New %{model}'
+      edit: 'Edit %{model}'
