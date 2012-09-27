@@ -13,7 +13,6 @@ module LinkToAction
   private
 
   def ilink_to(*args)
-    icon = args[0]
     icon = args[0].split(' ').map {|i| "icon-#{i}"}.join(' ')
     name = args[1]
     options = args.from(2)
