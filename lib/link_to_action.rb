@@ -1,10 +1,11 @@
 require "link_to_action/version"
 require 'action_view'
 require 'active_model'
+require 'active_support'
 
 module LinkToAction
   def link_to_new(object, options = {})
-    name = options.delete(:name) || t_action(object, :create)
+    name = options.delete(:name) || t_action(object, :new)
     params = options.delete(:params) || {}
     params[:action] = :new
     # TODO: make icon and can? optional
@@ -29,8 +30,10 @@ module LinkToAction
       object.class.model_name.human
     end
 
-    t(:"helpers.submit.#{action}", model: model)
+    t(:"helpers.link_to.#{action}", model: model)
   end
 end
 
 ActionView::Base.send :include, LinkToAction
+
+I18n.load_path << "#{File.dirname(__FILE__)}/link_to_action/locale/en.yml"
