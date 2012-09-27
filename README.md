@@ -2,6 +2,8 @@
 
 Set of helpers: link_to_new, link_to_edit, link_to_destroy
 
+NOTE: only link_to_new is available in version 0.0.1
+
 ## Installation
 
 Add this line to your application's Gemfile:
