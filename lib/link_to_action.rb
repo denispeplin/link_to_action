@@ -5,21 +5,25 @@ require 'active_support'
 
 module LinkToAction
   def link_to_new(object, options = {})
-    name = options.delete(:name) || t_action(object, :new)
-    params = options.delete(:params) || {}
-    params[:action] = :new
-    # TODO: make icon and can? optional
-    ilink_to 'plus large', name, polymorphic_url(object, params), options if can?(:create, object)
+    link_to_action(:new, object, options)
   end
 
   def link_to_edit(object, options = {})
-    name = options.delete(:name) || t_action(object, :edit)
-    params = options.delete(:params) || {}
-    params[:action] = :edit
-    ilink_to 'edit large', name, polymorphic_url(object, params), options if can_edit?(object)
+    link_to_action(:edit, object, options)
   end
 
   private
+
+  ICONS = {new: 'plus', edit: 'edit'}
+
+  def link_to_action(action, object, options)
+    name = options.delete(:name) || t_action(object, action)
+    params = options.delete(:params) || {}
+    params[:action] = action
+    # TODO: make icon and can? optional
+    ilink_to "#{LinkToAction::ICONS[action]} large", name,
+      polymorphic_url(object, params), options if can?(action, object)
+  end
 
   def ilink_to(*args)
     icon = args[0].split(' ').map {|i| "icon-#{i}"}.join(' ')
