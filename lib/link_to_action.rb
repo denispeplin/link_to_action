@@ -7,10 +7,18 @@ module LinkToAction
     name = options.delete(:name) || t_action(object, :create)
     params = options.delete(:params) || {}
     params[:action] = :new
-    link_to name, polymorphic_url(object, params), options
+    ilink_to 'plus large', name, polymorphic_url(object, params), options
   end
 
   private
+
+  def ilink_to(*args)
+    icon = args[0]
+    icon = args[0].split(' ').map {|i| "icon-#{i}"}.join(' ')
+    name = args[1]
+    options = args.from(2)
+    link_to raw("#{icon} #{ERB::Util.html_escape(name)}"), options
+  end
 
   # TODO: inspect some advanced I18n
   # actionpack/lib/action_view/helpers/form_helper.rb, submit_default_value
