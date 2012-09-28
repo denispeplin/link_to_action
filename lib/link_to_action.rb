@@ -19,6 +19,10 @@ module LinkToAction
     link_to_action(:destroy, object, options)
   end
 
+  def link_to_back(options = {})
+    ilink_to 'undo large', t(:'helpers.link_to.back'), :back, options
+  end
+
   private
 
   ICONS = {new: 'plus', edit: 'edit', destroy: 'trash'}

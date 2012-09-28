@@ -5,3 +5,4 @@ en:
       edit: 'Edit %{model}'
       destroy: 'Delete %{model}'
       destroy_confirm: 'Are you sure?'
+      back: 'Back'

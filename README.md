@@ -2,6 +2,8 @@
 
 Set of helpers: link_to_new, link_to_edit, link_to_destroy
 
+Bonus helper: link_to_back
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-link_to_{action} object, options
+    link_to_{action} object, options
 
 ## Contributing
 
