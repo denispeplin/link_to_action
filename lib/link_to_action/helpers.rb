@@ -18,15 +18,17 @@ module LinkToAction::Helpers
     ilink_to 'undo large', t(:'helpers.link_to.back'), :back, options
   end
 
+  # TODO: Move to separate module to avoid clashes
   private
 
+  # TODO: Move icon names to options
   ICONS = {new: 'plus', edit: 'edit', destroy: 'trash'}
 
   def link_to_action(action, object, options)
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
-    ilink_to "#{LinkToAction::Helpers::ICONS[action]} large", name,
+    iilink_to "#{LinkToAction::Helpers::ICONS[action]} large", name,
       polymorphic_path(object, params), options if cancan?(action, object)
   end
 
@@ -34,14 +36,13 @@ module LinkToAction::Helpers
     LinkToAction.use_cancan ? can?(*args) : true
   end
 
-  def ilink_to(*args)
-    name = args[1]
+  def iilink_to(icon_name, name, path, options = {})
     if LinkToAction.use_icons
-      icon = args[0].split(' ').map {|i| "icon-#{i}"}.join(' ')
+      icon_class = icon_name.split(' ').map {|i| "icon-#{i}"}.join(' ')
+      icon = "<i class=\"#{icon_class}\"></i>"
       name = raw("#{icon} #{ERB::Util.html_escape(name)}")
     end
-    options = args.from(2)
-    link_to name, options
+    link_to name, path, options
   end
 
   # TODO: inspect some advanced I18n
