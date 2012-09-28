@@ -26,7 +26,6 @@ module LinkToAction::Helpers
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
-    # TODO: make icon and can? optional
     ilink_to "#{LinkToAction::Helpers::ICONS[action]} large", name,
       polymorphic_path(object, params), options if cancan?(action, object)
   end
@@ -36,10 +35,13 @@ module LinkToAction::Helpers
   end
 
   def ilink_to(*args)
-    icon = args[0].split(' ').map {|i| "icon-#{i}"}.join(' ')
     name = args[1]
+    if LinkToAction.use_icons
+      icon = args[0].split(' ').map {|i| "icon-#{i}"}.join(' ')
+      name = raw("#{icon} #{ERB::Util.html_escape(name)}")
+    end
     options = args.from(2)
-    link_to raw("#{icon} #{ERB::Util.html_escape(name)}"), options
+    link_to name, options
   end
 
   # TODO: inspect some advanced I18n
