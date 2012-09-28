@@ -1,7 +1,7 @@
 require 'rails/generators'
 require 'rails/generators/named_base'
 
-module LinkToActions
+module LinkToAction
   module Generators
     class InstallGenerator < Rails::Generators::Base
       desc "Copy LinkToAction configuration file"
