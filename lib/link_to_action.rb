@@ -5,6 +5,12 @@ require 'active_model'
 require 'active_support'
 
 module LinkToAction
+  mattr_accessor :use_cancan
+  @@use_cancan = false
+
+  mattr_accessor :use_icons
+  @@use_icons = false
+
   def self.setup
     yield self
   end
