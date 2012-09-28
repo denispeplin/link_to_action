@@ -3,3 +3,5 @@ en:
     link_to:
       new: 'New %{model}'
       edit: 'Edit %{model}'
+      destroy: 'Delete %{model}'
+      destroy_confirm: 'Are you sure?'

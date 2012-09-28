@@ -12,14 +12,21 @@ module LinkToAction
     link_to_action(:edit, object, options)
   end
 
+  def link_to_destroy(object, options = {})
+    options[:method] = :delete
+    options[:data] = { :confirm => t(:'helpers.link_to.destroy_confirm') }
+    options['data-skip-pjax'] = true
+    link_to_action(:destroy, object, options)
+  end
+
   private
 
-  ICONS = {new: 'plus', edit: 'edit'}
+  ICONS = {new: 'plus', edit: 'edit', destroy: 'trash'}
 
   def link_to_action(action, object, options)
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
-    params[:action] = action
+    params[:action] = action if [ :new, :edit ].include? action
     # TODO: make icon and can? optional
     ilink_to "#{LinkToAction::ICONS[action]} large", name,
       polymorphic_url(object, params), options if can?(action, object)
