@@ -1,3 +1,5 @@
+* [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/denispeplin/link_to_action)
+
 # LinkToAction
 
 Set of helpers: link_to_new, link_to_edit, link_to_destroy
