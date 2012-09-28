@@ -29,7 +29,7 @@ module LinkToAction
     params[:action] = action if [ :new, :edit ].include? action
     # TODO: make icon and can? optional
     ilink_to "#{LinkToAction::ICONS[action]} large", name,
-      polymorphic_url(object, params), options if can?(action, object)
+      polymorphic_path(object, params), options if can?(action, object)
   end
 
   def ilink_to(*args)
