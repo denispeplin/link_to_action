@@ -3,6 +3,7 @@
 .bundle
 .config
 .yardoc
+.c9revisions
 Gemfile.lock
 InstalledFiles
 _yardoc
@@ -16,3 +17,4 @@ test/tmp
 test/version_tmp
 tmp
 nbproject
+/.c9revisions/
