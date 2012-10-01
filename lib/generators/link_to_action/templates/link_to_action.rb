@@ -22,9 +22,9 @@ LinkToAction.setup do |config|
   # config.class_default = 'btn'
 
   # Classes for actions
-  # config.class_new = 'primary'
+  # config.class_new = 'btn-primary'
   # config.class_edit = nil
-  # config.class_destroy = 'danger'
+  # config.class_destroy = 'btn-danger'
   # config.class_back = nil
 
   # Size can be set using class, by default is adopted to twitter-bootstrap

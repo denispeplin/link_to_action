@@ -33,13 +33,13 @@ module LinkToAction
   @@class_default = 'btn'
 
   mattr_accessor :class_new
-  @@class_new = 'primary'
+  @@class_new = 'btn-primary'
 
   mattr_accessor :class_edit
   @@class_edit = nil
 
   mattr_accessor :class_destroy
-  @@class_destroy = 'danger'
+  @@class_destroy = 'btn-danger'
 
   mattr_accessor :class_back
   @@class_back = nil
