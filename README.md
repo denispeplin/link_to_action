@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
+In general:
+
     link_to_{action} object, options
+    
+Per action:
+
+    link_to_new MyModel
+    link_to_edit @my_instance
+    link_to_destroy @my_instance
+    link_to_back
 
 ## Contributing
 
