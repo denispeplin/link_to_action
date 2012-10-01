@@ -41,12 +41,16 @@ module LinkToAction::Helpers
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
     options[:class] = action_class(action, options)
+    iilink_to action_icon(action), name, action_path(action, object, params),
+      options if cancan?(action, object)
+  end
+
+  def action_path(action, object, params)
     if action == :back
-      path = action
+      action
     else
-      path = polymorphic_path(object, params)
+      polymorphic_path(object, params)
     end
-    iilink_to action_icon(action), name, path, options if cancan?(action, object)
   end
 
   def cancan?(*args)
