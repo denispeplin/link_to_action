@@ -11,6 +11,21 @@ module LinkToAction
   mattr_accessor :use_icons
   @@use_icons = false
 
+  mattr_accessor :icons_size
+  @@icons_size = 'large'
+
+  mattr_accessor :icon_new
+  @@icon_new = 'plus'
+
+  mattr_accessor :icon_edit
+  @@icon_edit = 'edit'
+
+  mattr_accessor :icon_destroy
+  @@icon_destroy = 'trash'
+
+  mattr_accessor :icon_back
+  @@icon_back = 'undo'
+
   def self.setup
     yield self
   end

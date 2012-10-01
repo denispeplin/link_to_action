@@ -15,20 +15,21 @@ module LinkToAction::Helpers
   end
 
   def link_to_back(options = {})
-    ilink_to 'undo large', t(:'helpers.link_to.back'), :back, options
+    iilink_to action_icon(:back), t(:'helpers.link_to.back'), :back, options
   end
 
   # TODO: Move to separate module to avoid clashes
   private
 
-  # TODO: Move icon names to options
-  ICONS = {new: 'plus', edit: 'edit', destroy: 'trash'}
+  def action_icon(action)
+    [ LinkToAction.send("icon_#{action}"), LinkToAction.icons_size ].join(' ')
+  end
 
   def link_to_action(action, object, options)
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
-    iilink_to "#{LinkToAction::Helpers::ICONS[action]} large", name,
+    iilink_to action_icon(action), name,
       polymorphic_path(object, params), options if cancan?(action, object)
   end
 
