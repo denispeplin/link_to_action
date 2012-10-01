@@ -15,11 +15,22 @@ module LinkToAction::Helpers
   end
 
   def link_to_back(options = {})
-    iilink_to action_icon(:back), t(:'helpers.link_to.back'), :back, options
+    link_to_action :back, nil, options
   end
 
   # TODO: Move to separate module to avoid clashes
   private
+
+  def action_class(action, options)
+    class_default = LinkToAction.class_default
+    class_action = LinkToAction.send("class_#{action}")
+    if options[:size]
+      size_class = LinkToAction.send("size_class_#{options[:size]}")
+    else
+      size_class = LinkToAction.size_class_default
+    end
+    [class_default, class_action, size_class, options[:class]].compact.join(' ')
+  end
 
   def action_icon(action)
     [ LinkToAction.send("icon_#{action}"), LinkToAction.icons_size ].join(' ')
@@ -29,12 +40,17 @@ module LinkToAction::Helpers
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
-    iilink_to action_icon(action), name,
-      polymorphic_path(object, params), options if cancan?(action, object)
+    options[:class] = action_class(action, options)
+    if action == :back
+      path = action
+    else
+      path = polymorphic_path(object, params)
+    end
+    iilink_to action_icon(action), name, path, options if cancan?(action, object)
   end
 
   def cancan?(*args)
-    LinkToAction.use_cancan ? can?(*args) : true
+    args[0] == :back || LinkToAction.use_cancan ? can?(*args) : true
   end
 
   def iilink_to(icon_name, name, path, options = {})
@@ -52,7 +68,7 @@ module LinkToAction::Helpers
     model = if object.respond_to?(:model_name)
       object.model_name.human
     else
-      object.class.model_name.human
+      object.class.model_name.human if object.class.respond_to?(:model_name)
     end
 
     t(:"helpers.link_to.#{action}", model: model)
