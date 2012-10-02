@@ -18,4 +18,9 @@ end
 
 class ActionView::TestCase
   include LinkToAction::Helpers
+  include MiscHelpers
+
+  def new_user_path
+    '/users/new'
+  end
 end
