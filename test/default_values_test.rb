@@ -23,7 +23,7 @@ class DefaultValuesTest < ActiveSupport::TestCase
 
   DEFAULT_VALUES.each do |key, value|
     test key.to_s do
-      assert_equal LinkToAction.send(key), value
+      assert_equal value, LinkToAction.send(key)
     end
   end
 end
