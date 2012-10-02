@@ -23,4 +23,19 @@ class ActionView::TestCase
   def new_user_path
     '/users/new'
   end
+
+  def edit_user_path(user)
+    # user.id == ?
+    "/users/#{1}/edit"
+  end
+
+  def user_path(user)
+    "/users/1"
+  end
+
+  setup :setup_new_user
+
+  def setup_new_user(options={})
+    @user = User.new(id: 1, name: 'username')
+  end
 end
