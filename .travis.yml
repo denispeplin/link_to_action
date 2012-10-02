@@ -1,0 +1,11 @@
+script: "bundle exec rake"
+before_install: gem update --system
+rvm:
+  - 1.9.3
+  - ree
+  - jruby
+gemfile:
+  - Gemfile
+notifications:
+  recipients:
+    - denis.peplin@gmail.com
