@@ -54,7 +54,7 @@ module LinkToAction::Helpers
   end
 
   def cancan?(*args)
-    args[0] == :back || LinkToAction.use_cancan ? can?(*args) : true
+    args[0] == :back || ( LinkToAction.use_cancan ? can?(*args) : true )
   end
 
   def iilink_to(icon_name, name, path, options = {})
