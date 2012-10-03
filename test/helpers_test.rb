@@ -19,6 +19,11 @@ class HelperTest < ActionView::TestCase
     assert_equal "<a href=\"javascript:history.back()\">Back</a>",
       link_to_back
   end
+
+  test 'link_to_back with size' do
+    assert_equal "<a href=\"javascript:history.back()\" class=\"btn-mini\">Back</a>",
+      link_to_back(size: :mini)
+  end
   
   test 'link_to_back first time with classes' do
     swap LinkToAction, use_classes: true do
