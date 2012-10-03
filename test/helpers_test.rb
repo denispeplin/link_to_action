@@ -15,6 +15,12 @@ class HelperTest < ActionView::TestCase
       link_to_destroy(@user)
   end
 
+  test 'link_to_destroy with cancan disallowed' do
+    swap LinkToAction, use_cancan: true do
+      assert_equal nil, link_to_destroy(@user)
+    end
+  end
+
   test 'link_to_back first time' do
     assert_equal "<a href=\"javascript:history.back()\">Back</a>",
       link_to_back

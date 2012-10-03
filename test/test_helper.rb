@@ -36,6 +36,10 @@ class ActionView::TestCase
     "/users/1"
   end
 
+  def can?(object, ability)
+    false
+  end
+
   setup :setup_new_user
 
   def setup_new_user(options={})
