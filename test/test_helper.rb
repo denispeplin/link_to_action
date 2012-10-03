@@ -47,6 +47,6 @@ class ActionView::TestCase
   setup :setup_new_user
 
   def setup_new_user(options={})
-    @user = User.new(id: 1, name: 'username')
+    @user = User.last
   end
 end
