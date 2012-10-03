@@ -5,5 +5,5 @@ en:
   hello: "Hello world"
   activerecord:
     models:
-      user: 'User'
-      comment: 'Comment'
+      user: 'My User'
+      comment: 'My Comment'
