@@ -3,7 +3,7 @@ require 'test_helper'
 class HelperTest < ActionView::TestCase
   test 'link_to_new' do
     assert_equal "<a href=\"/users/new\">New User</a>",
-      link_to_new(User), '/path'
+      link_to_new(User)
   end
 
   test 'link_to_edit' do
