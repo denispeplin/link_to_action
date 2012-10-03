@@ -36,8 +36,8 @@ module LinkToAction::Helpers
     LinkToAction.send("size_class_#{size}")
   end
 
-  def action_icon(action, icon_size)
-    [ LinkToAction.send("icon_#{action}"), icon_size ].join(' ')
+  def action_icon(action, icon, icon_size)
+    [ icon, icon_size ].compact.join(' ')
   end
 
   def link_to_action(action, object, options)
@@ -45,8 +45,9 @@ module LinkToAction::Helpers
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
     options[:class] = action_class(action, options)
+    icon = options.delete(:icon) || LinkToAction.send("icon_#{action}")
     icon_size = options.delete(:icon_size) || LinkToAction.icons_size
-    iilink_to action_icon(action, icon_size), name, action_path(action, object, params),
+    iilink_to action_icon(action, icon, icon_size), name, action_path(action, object, params),
       options if cancan?(action, object)
   end
 
