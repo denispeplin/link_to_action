@@ -36,6 +36,10 @@ class ActionView::TestCase
     "/users/1"
   end
 
+  def new_user_comment_path(objects)
+    "users/1/comments/new"
+  end
+
   def can?(object, ability)
     false
   end

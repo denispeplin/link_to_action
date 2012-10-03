@@ -6,6 +6,13 @@ class HelperTest < ActionView::TestCase
       link_to_new(User)
   end
 
+  # MUST BE 'New User', not 'New '
+  # and check also users/1/comments/new -> /users/1/comments/new
+  test 'link_to_new nested' do
+    assert_equal "<a href=\"users/1/comments/new\">New </a>",
+      link_to_new([@user, Comment])
+  end
+
   test 'link_to_edit' do
     assert_equal "<a href=\"/users/1/edit\">Edit User</a>", link_to_edit(@user)
   end
