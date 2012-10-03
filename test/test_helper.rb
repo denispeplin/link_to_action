@@ -23,23 +23,6 @@ class ActionView::TestCase
   include LinkToAction::Helpers
   include MiscHelpers
 
-  def new_user_path
-    '/users/new'
-  end
-
-  def edit_user_path(user)
-    # user.id == ?
-    "/users/#{1}/edit"
-  end
-
-  def user_path(user)
-    "/users/1"
-  end
-
-  def new_user_comment_path(objects)
-    "users/1/comments/new"
-  end
-
   def can?(object, ability)
     false
   end
