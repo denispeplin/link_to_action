@@ -26,17 +26,14 @@ module LinkToAction::Helpers
       class_default = LinkToAction.class_default
       class_action = LinkToAction.send("class_#{action}")
     end
-    class_string = [ class_default, class_action, size_class(options),
+    size = options.delete(:size) || 'default'
+    class_string = [ class_default, class_action, size_class(size),
       options[:class] ].compact.join(' ')
     class_string unless class_string.blank?
   end
 
-  def size_class(options)
-    if options[:size]
-      LinkToAction.send("size_class_#{options[:size]}")
-    else
-      LinkToAction.size_class_default
-    end
+  def size_class(size)
+    LinkToAction.send("size_class_#{size}")
   end
 
   def action_icon(action)
