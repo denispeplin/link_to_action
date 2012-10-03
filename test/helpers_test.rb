@@ -31,7 +31,7 @@ class HelperTest < ActionView::TestCase
       link_to_back(size: :mini)
   end
 
-  test 'link_to_back with using icons' do
+  test 'link_to_back using icons' do
     swap LinkToAction, use_icons: true do
       assert_equal "<a href=\"javascript:history.back()\"><i class=\"icon-undo icon-large\"></i> Back</a>",
         link_to_back
