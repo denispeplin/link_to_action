@@ -14,6 +14,7 @@ pkg
 rdoc
 spec/reports
 test/tmp
+test/dummy/log
 test/version_tmp
 tmp
 nbproject
