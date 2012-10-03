@@ -75,6 +75,7 @@ module LinkToAction::Helpers
   # TODO: inspect some advanced I18n
   # actionpack/lib/action_view/helpers/form_helper.rb, submit_default_value
   def t_action(object, action)
+    object = object.last if object.kind_of? Array
     model = if object.respond_to?(:model_name)
       object.model_name.human
     else
