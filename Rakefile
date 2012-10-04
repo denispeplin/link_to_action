@@ -1,6 +1,5 @@
 #!/usr/bin/env rake
 begin
-  require 'bundler/gem_tasks'
   require 'bundler/setup'
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
