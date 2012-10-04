@@ -65,12 +65,15 @@ In general:
 
     link_to_{action} object, options
     
-Per action:
+Per action, with commented-out link_to equivalents:
 
-    link_to_new MyModel
-    link_to_edit @my_instance
-    link_to_destroy @my_instance
-    link_to_back
+```ruby
+link_to_new MyModel # link_to 'New MyModel', new_my_model_path
+link_to_show @my_model # link_to @my_model.name, my_model_path(@my_model)
+link_to_edit @my_model # link_to 'Edit MyModel', edit_my_model_path(@my_model)
+link_to_destroy @my_model # link_to 'Delete MyModel', my_model_path(@my_model), method: :delete, data: { confirm: 'Are you sure?' }
+link_to_back # link_to :back
+```
 
 ## Contributing
 
