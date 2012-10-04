@@ -90,4 +90,11 @@ class HelperTest < ActionView::TestCase
         link_to_back(class: '')
     end
   end
+
+  test 'link_to_back append classes' do
+    swap LinkToAction, use_classes: true, classes_append: true do
+      assert_equal "<a href=\"javascript:history.back()\" class=\"btn btn-warning\">Back</a>",
+        link_to_back(class: 'btn-warning')
+    end
+  end
 end
