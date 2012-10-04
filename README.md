@@ -19,18 +19,24 @@ really pretty, you will also need icons.
 So how I18n-friendly button-style link with icon looks like in a view code?
 Well, it can look like this:
 
-    <%= link_to raw("<i class=\"icon-edit\"></i> #{t(:edit)}"), edit_comment_path(@comment), class: 'btn' %>
+```erb
+<%= link_to raw("<i class=\"icon-edit\"></i> #{t(:edit)}"), edit_comment_path(@comment), class: 'btn' %>
+```
 
 And scaffolded code was:
 
-    <%= link_to 'Edit', edit_comment_path(@comment) %>
+```erb
+<%= link_to 'Edit', edit_comment_path(@comment) %>
+```
 
 Even in simple scaffolded link words 'edit' and 'comment' was repeated twice.
 In more complex example word 'edit' was written three times.
 
 Using link_to_action gem, you can avoid those duplication completely:
 
-    link_to_edit @comment
+```erb
+<%= link_to_edit @comment %>
+```
 
 That's all for this link, but not all for this gem. It configurable, it can be
 tuned up to suit other than twitter-bootstrap CSS frameworks (which is off by
