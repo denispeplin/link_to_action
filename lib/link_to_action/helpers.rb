@@ -77,7 +77,12 @@ module LinkToAction::Helpers
     if LinkToAction.use_icons
       icon_class = icon_name.split(' ').map {|i| "icon-#{i}"}.join(' ')
       icon = "<i class=\"#{icon_class}\"></i>"
-      name = raw("#{icon} #{ERB::Util.html_escape(name)}")
+      name = ERB::Util.html_escape(name)
+      name = if LinkToAction.icons_place_left
+        raw("#{icon} #{name}")
+      else
+        raw("#{name} #{icon}")
+      end
     end
     link_to name, path, options
   end

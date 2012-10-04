@@ -5,6 +5,7 @@ class DefaultValuesTest < ActiveSupport::TestCase
     use_cancan: false,
     use_icons: false,
     icons_size: 'large',
+    icons_place_left: true,
     icon_new: 'plus',
     icon_edit: 'edit',
     icon_destroy: 'trash',

@@ -14,6 +14,10 @@ module LinkToAction
   mattr_accessor :icons_size
   @@icons_size = 'large'
 
+  # 'position' word is too long
+  mattr_accessor :icons_place_left
+  @@icons_place_left = true
+
   mattr_accessor :icon_new
   @@icon_new = 'plus'
 

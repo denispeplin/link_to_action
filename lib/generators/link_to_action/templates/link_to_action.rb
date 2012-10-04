@@ -5,6 +5,9 @@ LinkToAction.setup do |config|
   # Add icons to links, default false
   # config.use_icons = false
 
+  # Place icons to left, default true
+  # config.icons_place_left = true
+
   # Icons by default are adopted to font-awesome
   # Icons size, default 'large'
   # config.icons_size = 'large'

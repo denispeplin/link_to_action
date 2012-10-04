@@ -43,6 +43,13 @@ class HelperTest < ActionView::TestCase
     end
   end
 
+  test 'link_to_back with icon on the right side' do
+    swap LinkToAction, use_icons: true, icons_place_left: false do
+      assert_equal "<a href=\"javascript:history.back()\">Back <i class=\"icon-undo icon-large\"></i></a>",
+        link_to_back
+    end
+  end
+
   test 'link_to_back specifying icon' do
     swap LinkToAction, use_icons: true do
       assert_equal "<a href=\"javascript:history.back()\"><i class=\"icon-chevron-left icon-large\"></i> Back</a>",
