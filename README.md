@@ -87,6 +87,10 @@ name for the link. Other helpers uses I18n to get link names.
 
 ## I18n
 
+`link_to_action` comes with I18n preconfigured, nested in `helpers.link_to`
+section. Custom (or localized) model names can be added to `activerecord.models`
+section.
+
 ```yml
 en:
   activerecord:
