@@ -63,4 +63,11 @@ class HelperTest < ActionView::TestCase
         link_to_back
     end
   end
+
+  test 'link_to_back drop classes' do
+    swap LinkToAction, use_classes: true do
+      assert_equal "<a href=\"javascript:history.back()\">Back</a>",
+        link_to_back(class: false)
+    end
+  end
 end
