@@ -27,9 +27,16 @@ module LinkToAction::Helpers
       class_action = LinkToAction.send("class_#{action}")
     end
     size = options.delete(:size) || 'default'
-    class_string = [ class_default, class_action, options[:class] ] unless options[:class] == false
+    class_string = [ class_default, class_action ]
+    if options[:class]
+      class_string = if LinkToAction.classes_append
+        [ class_string, options[:class] ]
+      else
+        options[:class]
+      end
+    end
     class_string = [ class_string ,size_class(size) ].flatten.compact.join(' ')
-    class_string unless class_string.blank?
+    class_string.strip unless class_string.blank?
   end
 
   def size_class(size)

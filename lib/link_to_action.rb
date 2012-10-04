@@ -29,6 +29,9 @@ module LinkToAction
   mattr_accessor :use_classes
   @@use_classes = false
 
+  mattr_accessor :classes_append
+  @@classes_append = false
+
   mattr_accessor :class_default
   @@class_default = 'btn'
 

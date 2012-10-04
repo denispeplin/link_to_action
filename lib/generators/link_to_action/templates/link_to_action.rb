@@ -18,6 +18,9 @@ LinkToAction.setup do |config|
   # Use classes, default false
   # config.use_classes = false
 
+  # Append classes when :class option is specified, default false
+  # config.classes_append = false
+
   # Classes by default are adopted to twitter-bootstrap
   # config.class_default = 'btn'
 

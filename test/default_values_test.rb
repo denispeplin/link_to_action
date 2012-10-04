@@ -10,6 +10,7 @@ class DefaultValuesTest < ActiveSupport::TestCase
     icon_destroy: 'trash',
     icon_back: 'undo',
     use_classes: false,
+    classes_append: false,
     class_default: 'btn',
     class_new: 'btn-primary',
     class_edit: nil,
