@@ -83,7 +83,7 @@ link_to_back # link_to :back
 ```
 
 `link_to_show` tries some methods (by default :name, :title, and :to_s) to get
-name for the link. Other helpers use I18n to get link names.
+name for the link. Other helpers uses I18n to get link names.
 
 ## I18n
 
