@@ -30,7 +30,7 @@ module LinkToAction::Helpers
     clases = [ class_default, class_action ]
     if options[:class]
       clases = if LinkToAction.classes_append
-        [ clases, options[:class] ]
+        clases.concat [ options[:class] ]
       else
         options[:class]
       end
