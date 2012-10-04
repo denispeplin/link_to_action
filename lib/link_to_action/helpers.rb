@@ -46,6 +46,7 @@ module LinkToAction::Helpers
   end
 
   def action_icon(action, icon, icon_size)
+    icon_size = nil if icon_size == :default
     [ icon, icon_size ].compact.join(' ')
   end
 
