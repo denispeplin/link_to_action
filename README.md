@@ -62,7 +62,7 @@ Add initializer:
 
     $ rails generate link_to_action:install
 
-Edit config/initializers/link_to_action.rb. Note that CSS classes, icons and
+Edit `config/initializers/link_to_action.rb`. Note that CSS classes, icons and
 cancan are disabled by default.
 
 ## Usage
@@ -103,6 +103,33 @@ en:
       destroy: 'Delete %{model}'
       destroy_confirm: 'Are you sure?'
       back: 'Back'
+```
+
+## Global CSS styles and icons
+
+Look to `config/initializers/link_to_action.rb` for global options. Cancan also
+goes here.
+
+## Per-link options
+
+```ruby
+:name # overwrites default name of the link
+:class # overwrites of appends class list
+:size # size of the button-like link
+:params # hash for to polymorphic_path, see examples
+:icon # Font-Awesome icon
+:icon_size # Size of icon
+:icon_swap # Swap default position of icon left-right
+```
+
+Examples
+
+```ruby
+# Link with parameters
+link_to_new Comment, params: {user_id: 1} # /comments/new?user_id=1
+
+# Nested link
+link_to_new [ @user, Comment ] # /users/1/comments/new
 ```
 
 ## Contributing
