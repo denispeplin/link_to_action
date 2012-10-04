@@ -76,6 +76,25 @@ link_to_destroy @my_model # link_to 'Delete MyModel', my_model_path(@my_model),
 link_to_back # link_to :back
 ```
 
+`link_to_show` tries some methods (by default :name, :title, and :to_s) to get
+name for the link. Other helpers use I18n to get link names.
+
+## I18n
+
+```yml
+en:
+  activerecord:
+    models:
+      my_model: 'My Awesome Model'
+  helpers:
+    link_to:
+      new: 'New %{model}'
+      edit: 'Edit %{model}'
+      destroy: 'Delete %{model}'
+      destroy_confirm: 'Are you sure?'
+      back: 'Back'
+```
+
 ## Contributing
 
 1. Fork it
