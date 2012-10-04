@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Links to actions"
   s.description = "link_to for specific actions"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.files = `git ls-files`.split($\)
   s.test_files = Dir["test/**/*"]
 
   s.add_development_dependency "rails", "~> 3.2.8"
