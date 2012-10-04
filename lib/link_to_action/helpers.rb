@@ -1,3 +1,5 @@
+# require 'ruby-debug'
+# uncomment line above add 'debugger' somewhere (without quotes) to debug something
 module LinkToAction::Helpers
   def link_to_new(object, options = {})
     link_to_action(:new, object, options)
