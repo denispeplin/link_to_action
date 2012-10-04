@@ -10,6 +10,10 @@ module LinkToAction
       def copy_initializers
         copy_file 'link_to_action.rb', 'config/initializers/link_to_action.rb'
       end
+
+      def copy_locale_file
+        copy_file 'en.yml', 'config/locales/link_to_action.en.yml'
+      end
     end
   end
 end
