@@ -62,6 +62,10 @@ module LinkToAction
 
   mattr_accessor :size_class_mini
   @@size_class_mini = 'btn-mini'
+
+  mattr_accessor :show_methods
+  @@show_methods = [ :name, :title, :to_s ]
+
   def self.setup
     yield self
   end

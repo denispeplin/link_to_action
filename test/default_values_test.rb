@@ -21,6 +21,7 @@ class DefaultValuesTest < ActiveSupport::TestCase
     size_class_large: 'btn-large',
     size_class_small: 'btn-small',
     size_class_mini: 'btn-mini',
+    show_methods: [ :name, :title, :to_s ]
   }
 
   DEFAULT_VALUES.each do |key, value|

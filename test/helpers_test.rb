@@ -11,6 +11,11 @@ class HelperTest < ActionView::TestCase
       link_to_new([@user, Comment])
   end
 
+  test 'link_to_show' do
+    assert_equal "<a href=\"/users/1\">#{@user.name}</a>",
+      link_to_show(@user)
+  end
+
   test 'link_to_edit' do
     assert_equal "<a href=\"/users/1/edit\">Edit My User</a>", link_to_edit(@user)
   end

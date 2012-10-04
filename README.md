@@ -3,7 +3,7 @@
 
 # LinkToAction
 
-Set of helpers: link_to_new, link_to_edit, link_to_destroy
+Set of helpers: link_to_new, link_to_show, link_to_edit, link_to_destroy
 
 Bonus helper: link_to_back
 

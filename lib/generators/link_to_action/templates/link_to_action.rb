@@ -38,4 +38,7 @@ LinkToAction.setup do |config|
   # config.size_class_large = 'btn-large'
   # config.size_class_small = 'btn-small'
   # config.size_class_mini = 'btn-mini'
+
+  # Methods for link_to_show
+  # config.show_methods = [ :name, :title, :to_s ]
 end

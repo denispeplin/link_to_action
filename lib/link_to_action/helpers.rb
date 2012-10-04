@@ -20,6 +20,14 @@ module LinkToAction::Helpers
     link_to_action :back, nil, options
   end
 
+  def link_to_show(object, options = {})
+    name = options.delete(:name)
+    LinkToAction.show_methods.each do |m|
+      name = object.try(m) unless name
+    end
+    link_to name, object, options
+  end
+
   # TODO: Move to separate module to avoid clashes
   private
 
