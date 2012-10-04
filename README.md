@@ -7,6 +7,42 @@ Set of helpers: link_to_new, link_to_edit, link_to_destroy
 
 Bonus helper: link_to_back
 
+## Why
+
+Rails scaffold-generated links are not DRY, and it becomes even worse,
+when someone tries to make them I18n-friendly (they are not by default).
+
+If you have twitter-bootstrap installed, and want to make your links looks like
+a buttons, there will be another addition, 'class' option. To make these buttons
+really pretty, you will also need icons.
+
+So how I18n-friendly button-style link with icon looks like in a view code?
+Well, it can look like this:
+
+    <%= link_to raw("<i class=\"icon-edit\"></i> #{t(:edit)}"),
+      edit_comment_path(@comment), class: 'btn' %>
+
+And scaffolded code was:
+
+    <%= link_to 'Edit', edit_comment_path(@comment) %>
+
+Even in simple scaffolded link words 'edit' and 'comment' was repeated twice.
+In more complex example word 'edit' was written three times.
+
+Using link_to_action gem, you can avoid those duplication completely:
+
+    link_to_edit @comment
+
+That's all for this link, but not all for this gem. It configurable, it can be
+tuned up to suit other than twitter-bootstrap CSS frameworks (which is off by
+default anyway), and it even can take advantage of cancan's abilities.
+
+## When
+
+This gem is especially useful when application contains many simular-looking
+links. Many global and link-specific options are exists, so this gem is flexible.
+And you still have link_to if you want some link to look really simple!
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -17,9 +53,12 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Add initializer:
 
-    $ gem install link_to_action
+    $ rake link_to_action:install
+
+Edit config/initializers/link_to_action.rb. Note that CSS classes, icons and
+cancan are disabled by default.
 
 ## Usage
 
