@@ -78,6 +78,7 @@ module LinkToAction::Helpers
       icon_class = icon_name.split(' ').map {|i| "icon-#{i}"}.join(' ')
       icon = "<i class=\"#{icon_class}\"></i>"
       name = ERB::Util.html_escape(name)
+      # TODO: refactor using Array#reverse!
       name = if LinkToAction.icons_place_left
         raw("#{icon} #{name}")
       else
