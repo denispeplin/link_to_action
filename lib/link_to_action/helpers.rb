@@ -27,16 +27,16 @@ module LinkToAction::Helpers
       class_action = LinkToAction.send("class_#{action}")
     end
     size = options.delete(:size) || 'default'
-    clases = [ class_default, class_action ]
+    classes = [ class_default, class_action ]
     if options[:class]
-      clases = if LinkToAction.classes_append
-        clases.concat [ options[:class] ]
+      classes = if LinkToAction.classes_append
+        classes.concat [ options[:class] ]
       else
         options[:class]
       end
     end
-    clases = [ clases ,size_class(size) ].flatten.compact.join(' ')
-    clases.strip unless clases.blank?
+    classes = [ classes ,size_class(size) ].flatten.compact.join(' ')
+    classes.strip unless classes.blank?
   end
 
   def size_class(size)
