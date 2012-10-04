@@ -74,12 +74,14 @@ module LinkToAction::Helpers
   end
 
   def iilink_to(icon_name, name, path, options = {})
+    icon_swap = options.delete(:icon_swap)
     if LinkToAction.use_icons
       icon_class = icon_name.split(' ').map {|i| "icon-#{i}"}.join(' ')
       icon = "<i class=\"#{icon_class}\"></i>"
       name = ERB::Util.html_escape(name)
       caption = [icon, name]
       caption.reverse! unless LinkToAction.icons_place_left
+      caption.reverse! if icon_swap
       name = raw(caption.join(' '))
     end
     link_to name, path, options
