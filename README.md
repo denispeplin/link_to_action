@@ -19,8 +19,7 @@ really pretty, you will also need icons.
 So how I18n-friendly button-style link with icon looks like in a view code?
 Well, it can look like this:
 
-    <%= link_to raw("<i class=\"icon-edit\"></i> #{t(:edit)}"),
-      edit_comment_path(@comment), class: 'btn' %>
+    <%= link_to raw("<i class=\"icon-edit\"></i> #{t(:edit)}"), edit_comment_path(@comment), class: 'btn' %>
 
 And scaffolded code was:
 
