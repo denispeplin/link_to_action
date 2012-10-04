@@ -12,7 +12,7 @@ Bonus helper: link_to_back
 Rails scaffold-generated links are not DRY, and it becomes even worse,
 when someone tries to make them I18n-friendly (they are not by default).
 
-If you have twitter-bootstrap installed, and want to make your links looks like
+If you have twitter-bootstrap installed, and want to make your links look like
 a buttons, there will be another addition, 'class' option. To make these buttons
 really pretty, you will also need icons.
 
