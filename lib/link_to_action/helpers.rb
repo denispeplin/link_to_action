@@ -27,8 +27,8 @@ module LinkToAction::Helpers
       class_action = LinkToAction.send("class_#{action}")
     end
     size = options.delete(:size) || 'default'
-    class_string = [ class_default, class_action, size_class(size),
-      options[:class] ].compact.join(' ')
+    class_string = [ class_default, class_action, options[:class] ] unless options[:class] == false
+    class_string = [ class_string ,size_class(size) ].flatten.compact.join(' ')
     class_string unless class_string.blank?
   end
 
