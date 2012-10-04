@@ -55,7 +55,7 @@ And then execute:
 
 Add initializer:
 
-    $ rake link_to_action:install
+    $ rails generate link_to_action:install
 
 Edit config/initializers/link_to_action.rb. Note that CSS classes, icons and
 cancan are disabled by default.
