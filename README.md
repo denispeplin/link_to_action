@@ -58,7 +58,7 @@ And then execute:
 
     $ bundle
 
-Add initializer:
+Add initializer and locale file:
 
     $ rails generate link_to_action:install
 
