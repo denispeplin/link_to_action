@@ -110,26 +110,26 @@ en:
 Default options are:
 
 ```ruby
-config.use_cancan = false # overwrite this to use cancan
-config.use_icons = false # overwrite this to use FontAwesome icons
-config.icons_place_left = true
-config.icons_size = 'large'
-config.icon_new = 'plus'
-config.icon_edit = 'edit'
-config.icon_destroy = 'trash'
-config.icon_back = 'undo'
-config.use_classes = false # overwrite this to use Twitter Bootstrap classes
-config.classes_append = false
-config.class_default = 'btn'
-config.class_new = 'btn-primary'
-config.class_edit = nil
-config.class_destroy = 'btn-danger'
-config.class_back = nil
-config.size_class_default = nil
-config.size_class_large = 'btn-large'
-config.size_class_small = 'btn-small'
-config.size_class_mini = 'btn-mini'
-config.show_methods = [ :name, :title, :to_s ]
+use_cancan = false # overwrite this to use cancan
+use_icons = false # overwrite this to use FontAwesome icons
+icons_place_left = true
+icons_size = 'large'
+icon_new = 'plus'
+icon_edit = 'edit'
+icon_destroy = 'trash'
+icon_back = 'undo'
+use_classes = false # overwrite this to use Twitter Bootstrap classes
+classes_append = false
+class_default = 'btn'
+class_new = 'btn-primary'
+class_edit = nil
+class_destroy = 'btn-danger'
+class_back = nil
+size_class_default = nil
+size_class_large = 'btn-large'
+size_class_small = 'btn-small'
+size_class_mini = 'btn-mini'
+show_methods = [ :name, :title, :to_s ]
 ```
 Look to `config/initializers/link_to_action.rb` for detailed description.
 
