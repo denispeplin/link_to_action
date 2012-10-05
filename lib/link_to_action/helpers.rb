@@ -42,11 +42,11 @@ module LinkToAction::Helpers
       classes = if LinkToAction.classes_append
         classes.concat [ options[:class] ]
       else
-        options[:class]
+        [ options[:class] ]
       end
     end
-    classes = [ classes ,size_class(size) ].flatten.compact.join(' ')
-    classes.strip unless classes.blank?
+    classes = classes.concat([ size_class(size) ]).compact.join(' ')
+    classes unless classes.blank?
   end
 
   def size_class(size)
