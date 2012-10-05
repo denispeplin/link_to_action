@@ -14,6 +14,7 @@ LinkToAction.setup do |config|
 
   # Icons for actions
   # config.icon_new = 'plus'
+  # config.icon_index = '' # empty icon drops it
   # config.icon_edit = 'edit'
   # config.icon_destroy = 'trash'
   # config.icon_back = 'undo'
@@ -29,6 +30,7 @@ LinkToAction.setup do |config|
 
   # Classes for actions
   # config.class_new = 'btn-primary'
+  # config.class_index = '' # empty class overwrites default
   # config.class_edit = nil
   # config.class_destroy = 'btn-danger'
   # config.class_back = nil

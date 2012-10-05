@@ -5,6 +5,10 @@ module LinkToAction::Helpers
     link_to_action(:new, object, options)
   end
 
+  def link_to_index(object, options = {})
+    link_to_action(:index, object, options)
+  end
+
   def link_to_edit(object, options = {})
     link_to_action(:edit, object, options)
   end
@@ -42,7 +46,8 @@ module LinkToAction::Helpers
       class_action = LinkToAction.send("class_#{action}")
     end
     size = options.delete(:size) || 'default'
-    classes = [ class_default, class_action ]
+    classes = []
+    classes = [ class_default, class_action ] unless class_action == ''
     if options[:class]
       classes = if LinkToAction.classes_append
         classes.concat [ options[:class] ]
@@ -60,7 +65,7 @@ module LinkToAction::Helpers
 
   def action_icon(action, icon, icon_size)
     icon_size = nil if icon_size == :default
-    [ icon, icon_size ].compact.join(' ')
+    [ icon, icon_size ].compact.map {|i| "icon-#{i}"}.join(' ') unless icon == ''
   end
 
   def link_to_action(action, object, options)
@@ -86,11 +91,10 @@ module LinkToAction::Helpers
     args[0] == :back || ( LinkToAction.use_cancan ? can?(*args) : true )
   end
 
-  def iilink_to(icon_name, name, path, options = {})
+  def iilink_to(icon, name, path, options = {})
     icon_swap = options.delete(:icon_swap)
-    if LinkToAction.use_icons
-      icon_class = icon_name.split(' ').map {|i| "icon-#{i}"}.join(' ')
-      icon = "<i class=\"#{icon_class}\"></i>"
+    if LinkToAction.use_icons && icon
+      icon = "<i class=\"#{icon}\"></i>"
       name = [icon, ERB::Util.html_escape(name) ]
       name.reverse! unless LinkToAction.icons_place_left
       name.reverse! if icon_swap
@@ -108,6 +112,8 @@ module LinkToAction::Helpers
     else
       object.class.model_name.human if object.class.respond_to?(:model_name)
     end
+    
+    model = model.pluralize if action == :index
 
     t(:"helpers.link_to.#{action}", model: model)
   end

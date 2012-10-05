@@ -10,6 +10,16 @@ class HelperTest < ActionView::TestCase
     assert_equal "<a href=\"/users/1/comments/new\">New My Comment</a>",
       link_to_new([@user, Comment])
   end
+  
+  test 'link_to_index' do
+    assert_equal "<a href=\"/users\">My Users</a>", link_to_index(User)
+  end
+
+  test 'link_to_index when icons and classes enabled' do
+    swap LinkToAction, use_icons: true, use_classes: true do
+      assert_equal "<a href=\"/users\">My Users</a>", link_to_index(User)
+    end
+  end
 
   test 'link_to_show' do
     assert_equal "<a href=\"/users/1\">#{@user.name}</a>",

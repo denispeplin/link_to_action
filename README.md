@@ -3,7 +3,7 @@
 
 # LinkToAction
 
-Set of helpers: link_to_new, link_to_show, link_to_edit, link_to_destroy
+Set of helpers: link_to_new, link_to_index, link_to_show, link_to_edit, link_to_destroy
 
 Bonus helper: link_to_back
 
@@ -75,6 +75,7 @@ Per action, with commented-out link_to equivalents:
 
 ```ruby
 link_to_new MyModel # link_to 'New MyModel', new_my_model_path
+link_to_index MyModel # link_to 'My Models', my_models_path
 link_to_show @my_model # link_to @my_model.name, my_model_path(@my_model)
 link_to_edit @my_model # link_to 'Edit MyModel', edit_my_model_path(@my_model)
 link_to_destroy @my_model # link_to 'Delete MyModel', my_model_path(@my_model),
@@ -99,6 +100,7 @@ en:
   helpers:
     link_to:
       new: 'New %{model}'
+      index: '%{model}'
       edit: 'Edit %{model}'
       destroy: 'Delete %{model}'
       destroy_confirm: 'Are you sure?'
@@ -115,6 +117,7 @@ use_icons = false # overwrite this to use FontAwesome icons
 icons_place_left = true
 icons_size = 'large'
 icon_new = 'plus'
+icon_index = ''
 icon_edit = 'edit'
 icon_destroy = 'trash'
 icon_back = 'undo'
@@ -122,6 +125,7 @@ use_classes = false # overwrite this to use Twitter Bootstrap classes
 classes_append = false
 class_default = 'btn'
 class_new = 'btn-primary'
+class_index = ''
 class_edit = nil
 class_destroy = 'btn-danger'
 class_back = nil

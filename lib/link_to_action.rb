@@ -21,6 +21,9 @@ module LinkToAction
   mattr_accessor :icon_new
   @@icon_new = 'plus'
 
+  mattr_accessor :icon_index
+  @@icon_index = ''
+
   mattr_accessor :icon_edit
   @@icon_edit = 'edit'
 
@@ -41,6 +44,9 @@ module LinkToAction
 
   mattr_accessor :class_new
   @@class_new = 'btn-primary'
+
+  mattr_accessor :class_index
+  @@class_index = ''
 
   mattr_accessor :class_edit
   @@class_edit = nil
