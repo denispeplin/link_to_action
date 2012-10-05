@@ -110,15 +110,15 @@ en:
 Default options are:
 
 ```ruby
-config.use_cancan = false
-config.use_icons = false
+config.use_cancan = false # overwrite this to use cancan
+config.use_icons = false # overwrite this to use FontAwesome icons
 config.icons_place_left = true
 config.icons_size = 'large'
 config.icon_new = 'plus'
 config.icon_edit = 'edit'
 config.icon_destroy = 'trash'
 config.icon_back = 'undo'
-config.use_classes = false
+config.use_classes = false # overwrite this to use Twitter Bootstrap classes
 config.classes_append = false
 config.class_default = 'btn'
 config.class_new = 'btn-primary'
