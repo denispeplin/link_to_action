@@ -151,7 +151,7 @@ Look to `config/initializers/link_to_action.rb` for detailed description.
 :send # method to sent to object to get name
 ```
 
-Examples
+## Examples
 
 ```ruby
 # Link with parameters
