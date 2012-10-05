@@ -122,6 +122,12 @@ goes here.
 :icon_swap # Swap default position of icon left-right
 ```
 
+`link_to_show` options:
+```ruby
+:name # overwrites default name of the link
+:send # method to sent to object to get name
+```
+
 Examples
 
 ```ruby
