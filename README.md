@@ -148,7 +148,8 @@ Look to `config/initializers/link_to_action.rb` for detailed description.
 `link_to_show` options:
 ```ruby
 :name # overwrites default name of the link
-:send # method to sent to object to get name
+:send # method to send to object to get name
+:raw # method to send to object to get name, output raw
 ```
 
 ## Examples

@@ -21,6 +21,13 @@ class HelperTest < ActionView::TestCase
       link_to_show(@user, send: :login)
   end
 
+  test 'link_to_show using custom method raw' do
+    user = @user
+    user.login = '<a href="http://example.com">example</a>'
+    assert_equal "<a href=\"/users/1\">#{user.login}</a>",
+      link_to_show(user, raw: :login)
+  end
+
   test 'link_to_edit' do
     assert_equal "<a href=\"/users/1/edit\">Edit My User</a>", link_to_edit(@user)
   end

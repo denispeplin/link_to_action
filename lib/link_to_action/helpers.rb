@@ -23,6 +23,8 @@ module LinkToAction::Helpers
   def link_to_show(object, options = {})
     name = options.delete(:name)
     send = options.delete(:send)
+    raw = options.delete(:raw)
+    name = raw(object.send(raw)) if raw
     name = object.send(send) if send
     LinkToAction.show_methods.each do |m|
       name = object.try(m) unless name
