@@ -22,19 +22,20 @@ module LinkToAction::Helpers
 
   def link_to_show(object, options = {})
     name = options.delete(:name)
-    send = options.delete(:send)
     raw = options.delete(:raw)
-    name = raw(object.send(raw)) if raw
-    name = object.send(send) if send
-    LinkToAction.show_methods.each do |m|
-      name = object.try(m) unless name
+    send = options.delete(:send)
+    unless name
+      method = raw || send ||
+        LinkToAction.show_methods.find { |m| object.respond_to?(m) }
+      name = object.send(method)
     end
+    name = raw(name) if raw
     link_to name, object, options
   end
 
   # TODO: Move to separate module to avoid clashes
   private
-
+  
   def action_class(action, options)
     if LinkToAction.use_classes
       class_default = LinkToAction.class_default
