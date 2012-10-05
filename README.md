@@ -114,7 +114,7 @@ goes here.
 
 ```ruby
 :name # overwrites default name of the link
-:class # overwrites of appends class list
+:class # overwrites or appends class list
 :size # size of the button-like link
 :params # hash for to polymorphic_path, see examples
 :icon # Font-Awesome icon
