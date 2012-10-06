@@ -71,6 +71,12 @@ module LinkToAction
 
   mattr_accessor :show_methods
   @@show_methods = [ :name, :title, :to_s ]
+  
+  mattr_accessor :destroy_confirm
+  @@destroy_confirm = true
+  
+  mattr_accessor :destroy_skip_pjax
+  @@destroy_skip_pjax = false
 
   def self.setup
     yield self

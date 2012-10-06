@@ -43,8 +43,22 @@ class HelperTest < ActionView::TestCase
   end
 
   test 'link_to_destroy' do
-    assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" data-skip-pjax=\"true\" rel=\"nofollow\">Delete My User</a>",
+    assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
       link_to_destroy(@user)
+  end
+  
+  test 'link_to_destroy with skip_pjax' do
+    swap LinkToAction, destroy_skip_pjax: true do
+      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" data-skip-pjax=\"true\" rel=\"nofollow\">Delete My User</a>",
+        link_to_destroy(@user)
+    end
+  end
+
+  test 'link_to_destroy without confirm' do
+    swap LinkToAction, destroy_confirm: false do
+      assert_equal "<a href=\"/users/1\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+        link_to_destroy(@user)
+    end
   end
 
   test 'link_to_destroy with cancan disallowed' do

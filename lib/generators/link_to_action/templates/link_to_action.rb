@@ -43,4 +43,8 @@ LinkToAction.setup do |config|
 
   # Methods for link_to_show
   # config.show_methods = [ :name, :title, :to_s ]
+  
+  # Destroy link options
+  # config.destroy_confirm = true
+  # config.destroy_skip_pjax = false
 end
