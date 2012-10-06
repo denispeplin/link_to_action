@@ -43,7 +43,7 @@ module LinkToAction::Helpers
   private
   
   def link_to_action(action, object, options)
-    name = options.delete(:name) || t_action(object, action)
+    name = options.delete(:name) || LinkToAction::Utils::t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
     options[:class] = LinkToAction::Utils::action_class(action, options)
@@ -74,21 +74,6 @@ module LinkToAction::Helpers
       name = raw(name.join(' '))
     end
     link_to name, path, options
-  end
-
-  # TODO: inspect some advanced I18n
-  # actionpack/lib/action_view/helpers/form_helper.rb, submit_default_value
-  def t_action(object, action)
-    object = object.last if object.kind_of? Array
-    model = if object.respond_to?(:model_name)
-      object.model_name.human
-    else
-      object.class.model_name.human if object.class.respond_to?(:model_name)
-    end
-    
-    model = model.pluralize if action == :index
-
-    t(:"helpers.link_to.#{action}", model: model)
   end
 end
 

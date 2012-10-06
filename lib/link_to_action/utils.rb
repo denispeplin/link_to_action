@@ -25,4 +25,19 @@ module LinkToAction::Utils
     classes = classes.concat(size_class).compact.join(' ')
     classes unless classes.blank?
   end
+  
+  # TODO: inspect some advanced I18n
+  # actionpack/lib/action_view/helpers/form_helper.rb, submit_default_value
+  def self.t_action(object, action)
+    object = object.last if object.kind_of? Array
+    model = if object.respond_to?(:model_name)
+      object.model_name.human
+    else
+      object.class.model_name.human if object.class.respond_to?(:model_name)
+    end
+    
+    model = model.pluralize if action == :index
+
+    I18n.t(:"helpers.link_to.#{action}", model: model)
+  end
 end
