@@ -39,8 +39,8 @@ module LinkToAction::Helpers
     link_to name, object, options
   end
 
-  # TODO: Find the way to move this to separate module
-  # without loosing access to Rails helpers
+  # TODO: Find the way to move this to separate module without loosing access to Rails helpers
+  # TODO: all these LinkToAction:: are not DRY, do something with this
   private
   
   def link_to_action(action, object, options)
