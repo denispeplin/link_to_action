@@ -6,7 +6,8 @@ module LinkToAction::Utils
     [ icon, icon_size ].compact.map {|i| "icon-#{i}"}.join(' ') unless icon == ''
   end
 
-  def self.add_icon_to_name(icon, name, options)
+  def self.add_icon_to_name(action, name, options)
+    icon = self.action_icon(action, options)
     icon_swap = options.delete(:icon_swap)
     if LinkToAction.use_icons && icon
       icon = "<i class=\"#{icon}\"></i>"

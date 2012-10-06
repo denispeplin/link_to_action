@@ -48,8 +48,7 @@ module LinkToAction::Helpers
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
     options[:class] = LinkToAction::Utils::action_class(action, options)
-    icon = LinkToAction::Utils::action_icon(action, options)
-    name = LinkToAction::Utils::add_icon_to_name(icon, name, options)
+    name = LinkToAction::Utils::add_icon_to_name(action, name, options)
     if link_to_action_cancan?(action, object)
       link_to name, link_to_action_path(action, object, params), options
     end
