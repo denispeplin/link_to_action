@@ -5,7 +5,20 @@ module LinkToAction::Utils
     icon_size = nil if icon_size == :default
     [ icon, icon_size ].compact.map {|i| "icon-#{i}"}.join(' ') unless icon == ''
   end
-  
+
+  def self.add_icon_to_name(icon, name, options)
+    icon_swap = options.delete(:icon_swap)
+    if LinkToAction.use_icons && icon
+      icon = "<i class=\"#{icon}\"></i>"
+      name = [icon, ERB::Util.html_escape(name) ]
+      name.reverse! unless LinkToAction.icons_place_left
+      name.reverse! if icon_swap
+      name.join(' ').html_safe
+    else
+      name
+    end
+  end
+
   def self.action_class(action, options)
     if LinkToAction.use_classes
       class_default = LinkToAction.class_default
