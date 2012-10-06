@@ -49,8 +49,8 @@ module LinkToAction::Helpers
     params[:action] = action if [ :new, :edit ].include? action
     options[:class] = LinkToAction::Utils::action_class(action, options)
     icon = LinkToAction::Utils::action_icon(action, options)
-    iilink_to icon, name, action_path(action, object, params),
-      options if cancan?(action, object)
+    name = LinkToAction::Utils::add_icon_to_name(icon, name, options)
+    link_to name, action_path(action, object, params), options if cancan?(action, object)
   end
 
   def action_path(action, object, params)
@@ -63,11 +63,6 @@ module LinkToAction::Helpers
 
   def cancan?(*args)
     args[0] == :back || ( LinkToAction.use_cancan ? can?(*args) : true )
-  end
-
-  def iilink_to(icon, name, path, options = {})
-    name = LinkToAction::Utils::add_icon_to_name(icon, name, options)
-    link_to name, path, options
   end
 end
 
