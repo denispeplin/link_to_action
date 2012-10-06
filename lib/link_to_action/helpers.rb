@@ -50,10 +50,12 @@ module LinkToAction::Helpers
     options[:class] = LinkToAction::Utils::action_class(action, options)
     icon = LinkToAction::Utils::action_icon(action, options)
     name = LinkToAction::Utils::add_icon_to_name(icon, name, options)
-    link_to name, action_path(action, object, params), options if cancan?(action, object)
+    if link_to_action_cancan?(action, object)
+      link_to name, link_to_action_path(action, object, params), options
+    end
   end
 
-  def action_path(action, object, params)
+  def link_to_action_path(action, object, params)
     if action == :back
       action
     else
@@ -61,7 +63,7 @@ module LinkToAction::Helpers
     end
   end
 
-  def cancan?(*args)
+  def link_to_action_cancan?(*args)
     args[0] == :back || ( LinkToAction.use_cancan ? can?(*args) : true )
   end
 end
