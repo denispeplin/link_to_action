@@ -42,38 +42,11 @@ module LinkToAction::Helpers
   # TODO: Move to separate module to avoid clashes
   private
   
-  def ut
-    LinkToAction::Utils::utils_test
-  end
-  
-  def action_class(action, options)
-    if LinkToAction.use_classes
-      class_default = LinkToAction.class_default
-      class_action = LinkToAction.send("class_#{action}")
-    end
-    size = options.delete(:size) || 'default'
-    classes = []
-    classes = [ class_default, class_action ] unless class_action == ''
-    if options[:class]
-      classes = if LinkToAction.classes_append
-        classes.concat [ options[:class] ]
-      else
-        [ options[:class] ]
-      end
-    end
-    classes = classes.concat([ size_class(size) ]).compact.join(' ')
-    classes unless classes.blank?
-  end
-
-  def size_class(size)
-    LinkToAction.send("size_class_#{size}")
-  end
-
   def link_to_action(action, object, options)
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
-    options[:class] = action_class(action, options)
+    options[:class] = LinkToAction::Utils::action_class(action, options)
     icon = LinkToAction::Utils::action_icon(action, options)
     iilink_to icon, name, action_path(action, object, params),
       options if cancan?(action, object)
