@@ -151,6 +151,11 @@ Look to `config/initializers/link_to_action.rb` for detailed description.
 :icon_swap # Swap default position of icon left-right
 ```
 
+`link_to_destroy` options:
+```ruby
+:confirm # true/false or some text per-link basis
+```
+
 `link_to_show` options:
 ```ruby
 :name # overwrites default name of the link

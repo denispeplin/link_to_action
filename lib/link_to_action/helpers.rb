@@ -23,7 +23,12 @@ module LinkToAction::Helpers
       confirm = LinkToAction.destroy_confirm
     end
     if confirm
-      options[:data] = { :confirm => t(:'helpers.link_to.destroy_confirm') }
+      if confirm.kind_of?(String)
+        confirm_text = confirm
+      else
+        confirm_text = t(:'helpers.link_to.destroy_confirm')
+      end
+      options[:data] = { :confirm => confirm_text }
     end
     options['data-skip-pjax'] = true if LinkToAction.destroy_skip_pjax
     link_to_action(:destroy, object, options)
