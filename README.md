@@ -166,6 +166,11 @@ link_to_new Comment, params: {user_id: 1} # /comments/new?user_id=1
 link_to_new [ @user, Comment ] # /users/1/comments/new
 ```
 
+## TODO
+
+1. Add templates to change Rails scaffold templates.
+2. Better testing.
+
 ## Contributing
 
 1. Fork it
