@@ -60,6 +60,18 @@ class HelperTest < ActionView::TestCase
         link_to_destroy(@user)
     end
   end
+  
+  test 'link_to_destroy with per-link confirm' do
+    swap LinkToAction, destroy_confirm: false do
+      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+        link_to_destroy(@user, confirm: true)
+    end
+  end
+  
+  test 'link_to_destroy without per-link confirm' do
+    assert_equal "<a href=\"/users/1\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+      link_to_destroy(@user, confirm: false)
+  end
 
   test 'link_to_destroy with cancan disallowed' do
     swap LinkToAction, use_cancan: true do

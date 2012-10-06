@@ -17,7 +17,12 @@ module LinkToAction::Helpers
 
   def link_to_destroy(object, options = {})
     options[:method] = :delete
-    if LinkToAction.destroy_confirm
+    if (options.has_key? :confirm)
+      confirm = options.delete(:confirm)
+    else
+      confirm = LinkToAction.destroy_confirm
+    end
+    if confirm
       options[:data] = { :confirm => t(:'helpers.link_to.destroy_confirm') }
     end
     options['data-skip-pjax'] = true if LinkToAction.destroy_skip_pjax
