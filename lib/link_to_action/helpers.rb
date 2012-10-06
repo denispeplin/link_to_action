@@ -1,5 +1,7 @@
 # require 'ruby-debug'
 # uncomment line above add 'debugger' somewhere (without quotes) to debug something
+require_relative 'utils'
+
 module LinkToAction::Helpers
   def link_to_new(object, options = {})
     link_to_action(:new, object, options)
@@ -40,6 +42,10 @@ module LinkToAction::Helpers
   # TODO: Move to separate module to avoid clashes
   private
   
+  def ut
+    LinkToAction::Utils::utils_test
+  end
+  
   def action_class(action, options)
     if LinkToAction.use_classes
       class_default = LinkToAction.class_default
@@ -63,19 +69,13 @@ module LinkToAction::Helpers
     LinkToAction.send("size_class_#{size}")
   end
 
-  def action_icon(action, icon, icon_size)
-    icon_size = nil if icon_size == :default
-    [ icon, icon_size ].compact.map {|i| "icon-#{i}"}.join(' ') unless icon == ''
-  end
-
   def link_to_action(action, object, options)
     name = options.delete(:name) || t_action(object, action)
     params = options.delete(:params) || {}
     params[:action] = action if [ :new, :edit ].include? action
     options[:class] = action_class(action, options)
-    icon = options.delete(:icon) || LinkToAction.send("icon_#{action}")
-    icon_size = options.delete(:icon_size) || LinkToAction.icons_size
-    iilink_to action_icon(action, icon, icon_size), name, action_path(action, object, params),
+    icon = LinkToAction::Utils::action_icon(action, options)
+    iilink_to icon, name, action_path(action, object, params),
       options if cancan?(action, object)
   end
 
