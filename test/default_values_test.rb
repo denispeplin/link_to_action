@@ -7,6 +7,7 @@ class DefaultValuesTest < ActiveSupport::TestCase
     icons_size: 'large',
     icons_place_left: true,
     icon_new: 'plus',
+    icon_show: '',
     icon_index: '',
     icon_edit: 'edit',
     icon_destroy: 'trash',
