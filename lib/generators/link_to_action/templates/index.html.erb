@@ -17,9 +17,9 @@
   <% attributes.each do |attribute| -%>
       <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
   <% end -%>
-      <td><%%= link_to 'Show', <%= singular_table_name %> %></td>
-      <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
-      <td><%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%%= link_to_show <%= singular_table_name %>, i18n: true %></td>
+      <td><%%= link_to_edit <%= singular_table_name %> %></td>
+      <td><%%= link_to_destroy <%= singular_table_name %> %></td>
     <%% end %>
   </tbody>
 </table>
