@@ -21,6 +21,9 @@ module LinkToAction
   mattr_accessor :icon_new
   @@icon_new = 'plus'
 
+  mattr_accessor :icon_show
+  @@icon_show = ''
+
   mattr_accessor :icon_index
   @@icon_index = ''
 
@@ -32,7 +35,7 @@ module LinkToAction
 
   mattr_accessor :icon_back
   @@icon_back = 'undo'
-
+  
   mattr_accessor :use_classes
   @@use_classes = false
 

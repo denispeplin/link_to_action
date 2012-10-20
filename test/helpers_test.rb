@@ -37,6 +37,13 @@ class HelperTest < ActionView::TestCase
     assert_equal "<a href=\"/users/1\">#{user.login}</a>",
       link_to_show(user, raw: :login)
   end
+  
+  test 'link_to_show using i18n text instead of sending method' do
+    user = @user
+    user.login = '<a href="http://example.com">example</a>'
+    assert_equal "<a href=\"/users/1\">Show My User</a>",
+      link_to_show(user, i18n: true)
+  end
 
   test 'link_to_edit' do
     assert_equal "<a href=\"/users/1/edit\">Edit My User</a>", link_to_edit(@user)

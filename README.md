@@ -84,7 +84,8 @@ link_to_back # link_to :back
 ```
 
 `link_to_show` tries some methods (by default :name, :title, and :to_s) to get
-name for the link. Other helpers uses I18n to get link names.
+name for the link. This can be changed by specifying `i18n` option. Other
+helpers use I18n to get link names unless `name` option specified.
 
 ## I18n
 
@@ -161,6 +162,7 @@ Look to `config/initializers/link_to_action.rb` for detailed description.
 :name # overwrites default name of the link
 :send # method to send to object to get name
 :raw # method to send to object to get name, output raw
+:i18n # if `i18n: true` is set, I18n name is displayed
 ```
 
 ## Examples

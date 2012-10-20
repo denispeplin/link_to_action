@@ -42,13 +42,20 @@ module LinkToAction::Helpers
     name = options.delete(:name)
     raw = options.delete(:raw)
     send = options.delete(:send)
-    unless name
+    i18n = options.delete(:i18n)
+    unless name or i18n
       method = raw || send ||
         LinkToAction.show_methods.find { |m| object.respond_to?(m) }
       name = object.send(method)
+      name = raw(name) if raw
     end
-    name = raw(name) if raw
-    link_to name, object, options
+    
+    if i18n
+      options[:name] = name
+      link_to_action :show, object, options
+    else
+      link_to name, object, options
+    end
   end
 
   # TODO: Find the way to move this to separate module without loosing access to Rails helpers
