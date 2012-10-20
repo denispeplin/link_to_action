@@ -24,7 +24,7 @@ class DefaultValuesTest < ActiveSupport::TestCase
     size_class_large: 'btn-large',
     size_class_small: 'btn-small',
     size_class_mini: 'btn-mini',
-    show_methods: [ :name, :title, :to_s ],
+    show_methods: [ :name, :to_s ],
     destroy_confirm: true,
     destroy_skip_pjax: false
   }

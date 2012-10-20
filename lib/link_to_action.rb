@@ -73,7 +73,7 @@ module LinkToAction
   @@size_class_mini = 'btn-mini'
 
   mattr_accessor :show_methods
-  @@show_methods = [ :name, :title, :to_s ]
+  @@show_methods = [ :name, :to_s ]
   
   mattr_accessor :destroy_confirm
   @@destroy_confirm = true

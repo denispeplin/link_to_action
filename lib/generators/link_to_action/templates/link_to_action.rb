@@ -43,7 +43,7 @@ LinkToAction.setup do |config|
   # config.size_class_mini = 'btn-mini'
 
   # Methods for link_to_show
-  # config.show_methods = [ :name, :title, :to_s ]
+  # config.show_methods = [ :name, :to_s ]
   
   # Destroy link options
   # config.destroy_confirm = true
