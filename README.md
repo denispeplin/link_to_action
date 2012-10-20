@@ -101,6 +101,7 @@ en:
   helpers:
     link_to:
       new: 'New %{model}'
+      show: 'Show %{model}'
       index: '%{model}'
       edit: 'Edit %{model}'
       destroy: 'Delete %{model}'
