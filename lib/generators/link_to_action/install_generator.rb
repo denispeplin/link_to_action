@@ -18,7 +18,6 @@ module LinkToAction
       
       def copy_templates
         # TODO: one LOC
-        copy_file '_form.html.erb', 'lib/templates/erb/scaffold/_form.html.erb'
         copy_file 'edit.html.erb', 'lib/templates/erb/scaffold/edit.html.erb'
         copy_file 'index.html.erb', 'lib/templates/erb/scaffold/index.html.erb'
         copy_file 'new.html.erb', 'lib/templates/erb/scaffold/new.html.erb'
