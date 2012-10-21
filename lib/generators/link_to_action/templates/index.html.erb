@@ -15,7 +15,11 @@
   <tbody>
     <%%= content_tag_for(:tr, @<%= plural_table_name %>) do |<%= singular_table_name %>| %>
   <% attributes.each do |attribute| -%>
+    <% if attribute.name == 'name' %>
+      <td><%%= link_to_show <%= singular_table_name %> %></td>
+    <% else %>
       <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% end %>
   <% end -%>
       <td><%%= link_to_show <%= singular_table_name %>, i18n: true %></td>
       <td><%%= link_to_edit <%= singular_table_name %> %></td>
