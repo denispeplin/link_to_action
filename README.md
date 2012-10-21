@@ -46,7 +46,7 @@ default anyway), and it even can take advantage of cancan's abilities.
 
 This gem is especially useful when application contains many simular-looking
 links. Many global and link-specific options are exists, so this gem is flexible.
-And you still have link_to if you want some link to look really simple!
+And you still have `link_to` if you want some link to look really simple!
 
 ## Installation
 
