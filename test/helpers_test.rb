@@ -41,49 +41,49 @@ class HelperTest < ActionView::TestCase
   test 'link_to_show using i18n text instead of sending method' do
     user = @user
     user.login = '<a href="http://example.com">example</a>'
-    assert_equal "<a href=\"/users/1\">Show My User</a>",
+    assert_equal "<a href=\"/users/1\">Show</a>",
       link_to_show(user, i18n: true)
   end
 
   test 'link_to_edit' do
-    assert_equal "<a href=\"/users/1/edit\">Edit My User</a>", link_to_edit(@user)
+    assert_equal "<a href=\"/users/1/edit\">Edit</a>", link_to_edit(@user)
   end
 
   test 'link_to_destroy' do
-    assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+    assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Delete</a>",
       link_to_destroy(@user)
   end
   
   test 'link_to_destroy with skip_pjax' do
     swap LinkToAction, destroy_skip_pjax: true do
-      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" data-skip-pjax=\"true\" rel=\"nofollow\">Delete My User</a>",
+      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" data-skip-pjax=\"true\" rel=\"nofollow\">Delete</a>",
         link_to_destroy(@user)
     end
   end
 
   test 'link_to_destroy without confirm' do
     swap LinkToAction, destroy_confirm: false do
-      assert_equal "<a href=\"/users/1\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+      assert_equal "<a href=\"/users/1\" data-method=\"delete\" rel=\"nofollow\">Delete</a>",
         link_to_destroy(@user)
     end
   end
   
   test 'link_to_destroy with per-link confirm' do
     swap LinkToAction, destroy_confirm: false do
-      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Delete</a>",
         link_to_destroy(@user, confirm: true)
     end
   end
   
   test 'link_to_destroy with per-link confirm and specific text' do
     swap LinkToAction, destroy_confirm: false do
-      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you really sure?\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+      assert_equal "<a href=\"/users/1\" data-confirm=\"Are you really sure?\" data-method=\"delete\" rel=\"nofollow\">Delete</a>",
         link_to_destroy(@user, confirm: 'Are you really sure?')
     end
   end
 
   test 'link_to_destroy without per-link confirm' do
-    assert_equal "<a href=\"/users/1\" data-method=\"delete\" rel=\"nofollow\">Delete My User</a>",
+    assert_equal "<a href=\"/users/1\" data-method=\"delete\" rel=\"nofollow\">Delete</a>",
       link_to_destroy(@user, confirm: false)
   end
 
