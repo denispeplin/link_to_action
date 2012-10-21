@@ -102,7 +102,7 @@ en:
     link_to:
       new: 'New %{model}'
       show: 'Show %{model}'
-      index: '%{model}'
+      index: 'All %{model}'
       edit: 'Edit %{model}'
       destroy: 'Delete %{model}'
       destroy_confirm: 'Are you sure?'
