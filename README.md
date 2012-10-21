@@ -109,6 +109,8 @@ en:
       back: 'Back'
 ```
 
+`%{model}` variables are not used by default for `show`, `edit`, and `destroy`.
+
 ## Global CSS styles, icons, and other options
 
 Default options are:

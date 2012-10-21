@@ -2,9 +2,9 @@ en:
   helpers:
     link_to:
       new: 'New %{model}'
-      show: 'Show %{model}'
+      show: 'Show'
       index: '%{model}'
-      edit: 'Edit %{model}'
-      destroy: 'Delete %{model}'
+      edit: 'Edit'
+      destroy: 'Delete'
       destroy_confirm: 'Are you sure?'
       back: 'Back'
