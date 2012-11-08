@@ -1,4 +1,6 @@
 module LinkToAction::Utils
+  module_function
+  
   def self.action_icon(action, options)
     icon = options.delete(:icon) || LinkToAction.send("icon_#{action}")
     icon_size = options.delete(:icon_size) || LinkToAction.icons_size
