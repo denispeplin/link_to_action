@@ -184,6 +184,10 @@ link_to_new [ @user, Comment ] # /users/1/comments/new
 2. Improve README, add more examples.
 3. Add templates for Zurb Foundation.
 
+## Credits
+
+This gem was heavily inspired by Platformatec's show_for and simple_form gems. Some code samples was taken from these gems.
+
 ## Contributing
 
 1. Fork it
