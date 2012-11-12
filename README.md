@@ -139,7 +139,7 @@ size_class_small = 'btn-small'
 size_class_mini = 'btn-mini'
 show_methods = [ :name, :title, :to_s ]
 destroy_confirm = true
-destroy_skip_pjax = false
+destroy_skip_pjax = false # overwrite this if pjax is used.
 ```
 Look to `config/initializers/link_to_action.rb` for detailed description.
 
