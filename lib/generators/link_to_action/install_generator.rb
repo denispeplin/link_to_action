@@ -32,8 +32,9 @@ module LinkToAction
       
       def copy_templates
         ['edit', 'index', 'new', 'show'].each do |action|
-          copy_file "#{action}.html.erb",
-            "lib/templates/erb/scaffold/#{action}.html.erb"
+          source_dir = 'bootstrap' if options[:bootstrap]
+          source_file = [ source_dir, "#{action}.html.erb"].compact.join('/')
+          copy_file source_file, "lib/templates/erb/scaffold/#{action}.html.erb"
         end
       end
     end
