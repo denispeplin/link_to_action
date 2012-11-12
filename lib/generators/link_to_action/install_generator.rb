@@ -31,11 +31,10 @@ module LinkToAction
       end
       
       def copy_templates
-        # TODO: one LOC
-        copy_file 'edit.html.erb', 'lib/templates/erb/scaffold/edit.html.erb'
-        copy_file 'index.html.erb', 'lib/templates/erb/scaffold/index.html.erb'
-        copy_file 'new.html.erb', 'lib/templates/erb/scaffold/new.html.erb'
-        copy_file 'show.html.erb', 'lib/templates/erb/scaffold/show.html.erb'
+        ['edit', 'index', 'new', 'show'].each do |action|
+          copy_file "#{action}.html.erb",
+            "lib/templates/erb/scaffold/#{action}.html.erb"
+        end
       end
     end
   end
