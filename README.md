@@ -180,9 +180,9 @@ link_to_new [ @user, Comment ] # /users/1/comments/new
 
 ## TODO
 
-1. Add templates to change Rails scaffold templates.
-2. Better testing.
-3. Improve README, add more examples.
+1. Better testing.
+2. Improve README, add more examples.
+3. Add templates for Zurb Foundation.
 
 ## Contributing
 
