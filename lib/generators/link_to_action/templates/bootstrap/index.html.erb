@@ -1,0 +1,33 @@
+<h1>Listing <%= plural_table_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+  <% attributes.each do |attribute| -%>
+      <th><%= attribute.human_name %></th>
+  <% end -%>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%%= content_tag_for(:tr, @<%= plural_table_name %>) do |<%= singular_table_name %>| %>
+  <% attributes.each do |attribute| -%>
+    <% if attribute.name == 'name' %>
+      <td><%%= link_to_show <%= singular_table_name %> %></td>
+    <% else %>
+      <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% end -%>
+  <% end -%>
+      <td><%%= link_to_show <%= singular_table_name %>, i18n: true %></td>
+      <td><%%= link_to_edit <%= singular_table_name %> %></td>
+      <td><%%= link_to_destroy <%= singular_table_name %> %></td>
+    <%% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%%= link_to_new <%= class_name %> %>
