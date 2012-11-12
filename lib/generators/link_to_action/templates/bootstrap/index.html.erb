@@ -19,9 +19,9 @@
       <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
     <% end -%>
   <% end -%>
-       <td><%%= link_to_show <%= singular_table_name %>, i18n: true %>
+       <td><%%= link_to_show <%= singular_table_name %>, i18n: true, size: :mini %>
       <%%= link_to_edit <%= singular_table_name %>, size: :mini %>
-      <%%= link_to_destroy <%= singular_table_name %> %></td>
+      <%%= link_to_destroy <%= singular_table_name %>, size: :mini %></td>
     <%% end %>
   </tbody>
 </table>
