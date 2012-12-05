@@ -34,7 +34,7 @@ And scaffolded code was:
 Even in simple scaffolded link words 'edit' and 'comment' was repeated twice.
 In the more complex example word 'edit' was written three times.
 
-Using link_to_action gem, you can avoid those duplications completely:
+Using `link_to_action` gem, you can avoid those duplications completely:
 
 ```erb
 <%= link_to_edit @comment %>
@@ -60,12 +60,16 @@ And then execute:
 
     $ bundle
 
-Add initializer and locale file:
+Add initializer, locale file and templates. Note that CSS classes, icons and
+cancan are disabled by default. To leave it as it is, just run:
 
     $ rails generate link_to_action:install
 
-Edit `config/initializers/link_to_action.rb`. Note that CSS classes, icons and
-cancan are disabled by default.
+Edit `config/initializers/link_to_action.rb` to change some options.
+
+To install `link_to_action` with Twitter Bootstrap and icons enabled, run:
+
+    $ rails generate link_to_action:install --bootstrap
 
 ## Usage
 
@@ -73,7 +77,8 @@ In general:
 
     link_to_{action} object, options
     
-Per action, with commented-out link_to equivalents:
+Per action, with commented-out link_to equivalents (no CSS or icons, just to
+keep it simple):
 
 ```ruby
 link_to_new MyModel # link_to 'New MyModel', new_my_model_path
