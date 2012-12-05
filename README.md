@@ -30,21 +30,21 @@ And scaffolded code was:
 ```
 
 Even in simple scaffolded link words 'edit' and 'comment' was repeated twice.
-In more complex example word 'edit' was written three times.
+In the more complex example word 'edit' was written three times.
 
-Using link_to_action gem, you can avoid those duplication completely:
+Using link_to_action gem, you can avoid those duplications completely:
 
 ```erb
 <%= link_to_edit @comment %>
 ```
 
-That's all for this link, but not all for this gem. It configurable, it can be
+That's all for this link, but not all for this gem. It is configurable, it can be
 tuned up to suit other than twitter-bootstrap CSS frameworks (which is off by
 default anyway), and it even can take advantage of cancan's abilities.
 
 ## When
 
-This gem is especially useful when application contains many simular-looking
+This gem is especially useful when an application contains many similar-looking
 links. Many global and link-specific options are exists, so this gem is flexible.
 And you still have `link_to` if you want some link to look really simple!
 
@@ -186,7 +186,7 @@ link_to_new [ @user, Comment ] # /users/1/comments/new
 
 ## Credits
 
-This gem was heavily inspired by Platformatec's show_for and simple_form gems. Some code samples was taken from these gems.
+This gem was heavily inspired by Platformatec's show_for and simple_form gems. Some code samples were taken from these gems.
 
 ## Contributing
 
