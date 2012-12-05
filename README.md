@@ -65,7 +65,8 @@ cancan are disabled by default. To leave it as it is, just run:
 
     $ rails generate link_to_action:install
 
-Edit `config/initializers/link_to_action.rb` to change some options.
+Edit `config/initializers/link_to_action.rb` to change some options. The list of
+options with defaults provided below.
 
 To install `link_to_action` with Twitter Bootstrap and icons enabled, run:
 
@@ -90,7 +91,7 @@ link_to_destroy @my_model # link_to 'Delete MyModel', my_model_path(@my_model),
 link_to_back # link_to :back
 ```
 
-`link_to_show` tries some methods (by default :name, :title, and :to_s) to get
+`link_to_show` tries some methods (by default :name and :to_s) to get
 name for the link. This can be changed by specifying `i18n` option. Other
 helpers use I18n to get link names unless `name` option specified.
 
@@ -144,7 +145,7 @@ size_class_default = nil
 size_class_large = 'btn-large'
 size_class_small = 'btn-small'
 size_class_mini = 'btn-mini'
-show_methods = [ :name, :title, :to_s ]
+show_methods = [ :name, :to_s ]
 destroy_confirm = true
 destroy_skip_pjax = false # overwrite this if pjax is used
 ```
