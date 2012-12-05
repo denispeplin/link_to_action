@@ -183,6 +183,7 @@ link_to_new [ @user, Comment ] # /users/1/comments/new
 1. Better testing.
 2. Improve README, add more examples.
 3. Add templates for Zurb Foundation.
+4. Whitespace fix in templates.
 
 ## Credits
 
