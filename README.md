@@ -7,6 +7,8 @@ Set of helpers: link_to_new, link_to_index, link_to_show, link_to_edit, link_to_
 
 Bonus helper: link_to_back
 
+Demo application sources with Twitter Bootstrap enabled: [link_to_action_demo](https://github.com/denispeplin/link_to_action_demo)
+
 ## Why
 
 Rails scaffold-generated links are not DRY, and it becomes even worse,
