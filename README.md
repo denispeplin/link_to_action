@@ -9,6 +9,9 @@ Bonus helper: link_to_back
 
 Demo application sources with Twitter Bootstrap enabled: [link_to_action_demo](https://github.com/denispeplin/link_to_action_demo)
 
+Want to use this gem with [Zurb Foundation](http://foundation.zurb.com/)? Make a
+[feature request](https://github.com/denispeplin/link_to_action/issues).
+
 ## Why
 
 Rails scaffold-generated links are not DRY, and it becomes even worse,
