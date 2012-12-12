@@ -198,7 +198,10 @@ link_to_new [ @user, Comment ] # /users/1/comments/new
 
 ## Credits
 
-This gem was heavily inspired by Platformatec's show_for and simple_form gems. Some code samples were taken from these gems.
+This gem was heavily inspired by Platformatec's
+[show_for](https://github.com/plataformatec/show_for) and
+[simple_form](https://github.com/plataformatec/simple_form) gems. Some code
+samples were taken from these gems.
 
 ## Contributing
 
