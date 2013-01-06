@@ -81,8 +81,9 @@ module LinkToAction::Helpers
     end
   end
 
-  def link_to_action_cancan?(*args)
-    args[0] == :back || ( LinkToAction.use_cancan ? can?(*args) : true )
+  def link_to_action_cancan?(action, object)
+    object = (object.is_a?(Array) ? Hash[*object] : object)
+    action == :back || (LinkToAction.use_cancan ? can?(action, object) : true)
   end
 end
 
