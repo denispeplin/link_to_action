@@ -1,5 +1,6 @@
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/denispeplin/link_to_action)
 [![Build Status](https://secure.travis-ci.org/denispeplin/link_to_action.png)](http://travis-ci.org/denispeplin/link_to_action)
+[![Gem Version](https://fury-badge.herokuapp.com/rb/link_to_action.png)](http://badge.fury.io/rb/link_to_action)
 
 # LinkToAction
 
