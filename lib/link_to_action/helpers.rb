@@ -82,7 +82,7 @@ module LinkToAction::Helpers
   end
 
   def link_to_action_cancan?(action, object)
-    object = (object.is_a?(Array) ? Hash[*object] : object)
+    object = (object.is_a?(Array) ? Hash[*(object.last(2))] : object)
     action == :back || (LinkToAction.use_cancan ? can?(action, object) : true)
   end
 end
