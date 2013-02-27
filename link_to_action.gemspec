@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split($\)
   s.test_files = Dir["test/**/*"]
 
-  s.add_development_dependency "rails", "~> 3.2.8"
+  s.add_development_dependency "rails", "~> 3.2.12"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "debugger"
