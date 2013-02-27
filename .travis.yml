@@ -1,7 +1,9 @@
 script: "bundle exec rake"
 before_install: gem update --system
 rvm:
+  - 1.9.2
   - 1.9.3
+  - ruby-head
 gemfile:
   - Gemfile
 notifications:
