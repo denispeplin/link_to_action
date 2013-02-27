@@ -1,5 +1,3 @@
-# require 'ruby-debug'
-# uncomment line above add 'debugger' somewhere (without quotes) to debug something
 require_relative 'utils'
 
 module LinkToAction::Helpers
