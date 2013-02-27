@@ -203,6 +203,13 @@ This gem was heavily inspired by Platformatec's
 [simple_form](https://github.com/plataformatec/simple_form) gems. Some code
 samples were taken from these gems.
 
+## Thanks
+
+This gem was announced in
+[Ruby5 podcast](http://ruby5.envylabs.com/episodes/333-episode-329-december-11th-2012/stories/2906-link_to_action)
+and
+[A Fresh Cup weblog](http://afreshcup.com/home/2012/12/11/double-shot-1020.html).
+
 ## Contributing
 
 1. Fork it
