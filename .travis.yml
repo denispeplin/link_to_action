@@ -2,7 +2,6 @@ script: "bundle exec rake"
 language: ruby
 rvm:
   - 1.9.3
-  - ruby-head
 notifications:
   recipients:
     - denis.peplin@gmail.com
