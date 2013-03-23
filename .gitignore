@@ -19,3 +19,4 @@ test/version_tmp
 tmp
 nbproject
 /.c9revisions/
+coverage
