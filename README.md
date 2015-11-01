@@ -2,6 +2,8 @@
 [![Build Status](https://secure.travis-ci.org/denispeplin/link_to_action.png)](http://travis-ci.org/denispeplin/link_to_action)
 [![Gem Version](https://fury-badge.herokuapp.com/rb/link_to_action.png)](http://badge.fury.io/rb/link_to_action)
 
+# DISCLAIMER: THE PROJECT IS NOT ACTIVELY MAINTAINED AND NEEDS REFACTORING.
+
 # LinkToAction
 
 Set of helpers: link_to_new, link_to_index, link_to_show, link_to_edit, link_to_destroy
